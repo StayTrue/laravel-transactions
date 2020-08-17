@@ -3,12 +3,20 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use Notifiable;
+    /**
+     * List of available currencies
+     *
+     * @var array
+     */
+    public const AVAILABLE_CURRENCIES = [
+        'AUD', 'GBP', 'BYR', 'DKK', 'USD', 'EUR', 'ISK', 'KZT', 'RUB'
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -16,24 +24,21 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nickname', 'currency'
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * List of visible attributes
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
+    protected $visible = [
+        'id'
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function transactions()
+    {
+        return $this->hasMany('App\Transaction');
+    }
+
 }
