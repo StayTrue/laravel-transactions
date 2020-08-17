@@ -12,7 +12,7 @@ class CurrencyHelper
      *
      * @var string
      */
-    public const CURRENCY_REDIS_KEY = 'countries:';
+    public const CURRENCY_REDIS_KEY = 'currencies:';
 
     /**
      * Url for getting rate data
