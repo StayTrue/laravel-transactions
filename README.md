@@ -1,4 +1,4 @@
-Laravel Countries API application
+Laravel Transactions API application
 
 ## Technical requirements
 
