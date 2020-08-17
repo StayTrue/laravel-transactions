@@ -31,8 +31,18 @@ class Transaction extends Model
         self::TYPE_EXPENSE,
     ];
 
+    /**
+     * Order type by date
+     *
+     * @var string
+     */
     public const ORDER_BY_DATE = 'date';
 
+    /**
+     * Available order types
+     *
+     * @var array
+     */
     public const AVAILABLE_ORDER_BY = [
         self::ORDER_BY_DATE,
     ];
